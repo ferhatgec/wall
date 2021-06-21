@@ -45,6 +45,13 @@ class Wall:
 
 
 if len(argv) >= 2:
+    if argv[1] == 'help':
+        print('Wall - Wall, set wallpaper that pseudo-randomly selected from Unsplash',
+              '---',
+              f'{argv[0]} category another_category', sep='\n')
+
+        exit(1)
+
     for index, arg in enumerate(argv):
         if index == 0:
             continue
