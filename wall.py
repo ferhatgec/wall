@@ -12,11 +12,12 @@
 
 
 from os import environ, system
+from sys import argv
 from pathlib import Path
 
 from requests import get
 
-unsplash = 'https://source.unsplash.com/random/{res}'
+unsplash = 'https://source.unsplash.com/random/{res}/?'
 
 
 class Wall:
@@ -42,6 +43,13 @@ class Wall:
         else:
             print('Uuh! There\'s another desktop env.')
 
+
+if len(argv) >= 2:
+    for index, arg in enumerate(argv):
+        if index == 0:
+            continue
+
+        unsplash += f'{arg},'
 
 init = Wall()
 init.get_image()
